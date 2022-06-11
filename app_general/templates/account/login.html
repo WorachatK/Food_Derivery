@@ -1,0 +1,33 @@
+{% extends 'components/base.html' %}
+{% load static %}
+
+{% block title_name %}LOGIN{% endblock %}
+
+{% block content %}
+
+
+
+<div class="row">
+    <div class="container">
+        <div class="col-lg-6reg">
+            <h1>Login</h1>
+
+            <form action="login" method="post">
+                {% csrf_token %}
+                
+                <div class="form-login">
+                    <label for="">username</label>
+                    <input type="text" class="form-control" name="username">
+                </div>
+                <div class="form-login">
+                    <label for="">Password</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+
+                <button type="submit" value="register" class="btn btn-primary">login</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

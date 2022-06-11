@@ -1,0 +1,25 @@
+{% extends 'components/base.html' %}
+
+{% block title_name %}MENU TYPE{% endblock %}
+{% load static %}
+
+{% block content %}
+
+<div class="show-menu">
+    <div class="container">
+        <h1>{{type}}</h1>
+        <div class="menu-grid-food">
+            {% for f in foodtype %}
+            <a href="{%url 'foodmenu' %}?name_food={{f.name}}">
+            <div class="menu-food">
+                <img src="{% static f.photo %}" alt="">
+                <h3>{{f.name}}</h3>
+                <p>ราคา {{f.price}}</p>
+            </div>
+        </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

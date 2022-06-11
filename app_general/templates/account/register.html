@@ -1,0 +1,52 @@
+{% extends 'components/base.html' %}
+{% load static %}
+
+{% block title_name %}REGISTER{% endblock %}
+
+{% block content %}
+
+
+
+<div class="row">
+    <div class="container">
+        <div class="col-lg-6reg">
+            <h1>Register</h1>
+            
+                {{massages}}
+            
+
+            <form action="add_user" method="post">
+                {% csrf_token %}
+                
+                <div class="form-login">
+                    <label for="">username</label>
+                    <input type="text" class="form-control" name="username">
+                </div>
+                <div class="form-login">
+                    <label for="">FirstName</label>
+                    <input type="text" class="form-control" name="firstname">
+                </div>
+                <div class="form-login">
+                    <label for="">Lastname</label>
+                    <input type="text" class="form-control" name="lastname">
+                </div>
+                <div class="form-login">
+                    <label for="">Email</label>
+                    <input type="email" class="form-control" name="email">
+                </div>
+                <div class="form-login">
+                    <label for="">Password</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+                <div class="form-login">
+                    <label for="">Re-Password</label>
+                    <input type="password" class="form-control" name="re-password">
+                </div>
+                <p>**หากสมัครสมาชิกสำเร็จระบบจะพาไปยังหน้า HOME</p>
+                <button type="submit" value="register" class="btn btn-primary">register</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

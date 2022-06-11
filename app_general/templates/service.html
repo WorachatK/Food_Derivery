@@ -1,0 +1,73 @@
+{% extends 'components/base.html' %}
+{% load static %}
+
+{% block title_name %}LOGIN{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<div class="order-order">
+    <div class="container">
+        <div class="user-bar">
+            <div class="name-user">
+                <h2>username : {{user.username}}</h2>
+            </div>
+            <div class="phone-number" >
+                เบอร์โทรศัพท์{{user.order_food.phonenumber}}
+            </div>
+            <div class="address-user" >
+                ที่อยู่ในการจัดส่ง{{user.order_food.address}}
+            </div>
+        </div>
+        <div class="table-order">
+            <table>
+                <tr>
+                  <th>ชื่อผู้สั่ง</th>
+                  <th>รายการอาหาร</th>
+                  <th>วันที่สั่ง</th>
+                  <th>สถานะ</th>
+                </tr>
+                {% if food %}
+                {% for order in food %}
+                <tr>
+                  <td>{{order.username}} </td>
+                  <td>{{order.food}}</td>
+                  <td>{{order.time}}</td>
+                  <th>กำลังเตรียมการ</th>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <td>ยังไม่ได้มีการสั่งซื้อ </td>
+                    <td></td>
+                    <td></td>
+                    <th></th>
+                  </tr>
+                {% endif %}
+              </table>
+        </div>
+
+    </div>
+</div>
+
+
+
+{% else %}
+
+<div class="order-order">
+    <div class="container">
+        <div class="head-order">
+            <h1>ตรวจสอบรายการสั่งซื้อ</h1>
+        </div>
+        <div class="botton-order">
+            <h2>กรุณาทำการ login ก่อน</h2>
+        </div>
+    </div>
+</div>
+
+
+                
+{% endif %}
+
+{% endblock %}

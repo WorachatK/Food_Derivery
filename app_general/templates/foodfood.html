@@ -1,0 +1,31 @@
+{% extends 'components/base.html' %}
+
+{% block title_name %}MENU TYPE{% endblock %}
+{% load static %}
+
+{% block content %}
+
+<div class="show-menu">
+    <div class="container">
+        <h1>{{type}}</h1>
+        <div class="menu-grid-food">
+            <div class="menu-food">
+                <img src="{% static foodfood.photo %}" alt="">
+                <h3>{{foodfood.name}}</h3>
+                <p>ราคา {{foodfood.price}}</p>
+                <p>ประเภท :{{foodfood.type}}</p>
+                <p>คำอธิบาย : {{foodfood.descriptiob}}</p>
+
+                <a href="{%url 'orderfood' %}?food_food={{foodfood.name}}">
+                    <div class="food-order">
+                        <h2>กดสั่ง</h2>
+                    </div>
+                </a>
+
+            </div>
+        </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

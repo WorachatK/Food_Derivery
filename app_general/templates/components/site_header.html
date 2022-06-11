@@ -1,0 +1,28 @@
+
+
+<header>
+    <div class="container">
+        <div class="head-grid">
+            <a href="{%url 'home' %}"><h1> Food Derivery </h1></a>
+            <ul>
+                <li><a href="{%url 'home' %}">HOME</a></li>
+                <li><a href="{%url 'foodmenu' %}">FOOD MENU</a></li>
+                <li><a href="{%url 'services' %}">SERVICES</a></li>
+                <li><a href="{%url 'about' %}">ABOUT US</a></li>
+                
+                {% if user.is_authenticated %}
+
+                <li><a href="/">{{user.first_name}}</a></li>
+                <li class="login"><a href="{%url 'logout' %}">LOG OUT</a></li>
+
+                {% else %}
+
+                <li><a href="register">REGISTER</a></li>
+                <li class="login"><a href="{%url 'login_view' %}">LOG IN</a></li>
+                
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+</header>

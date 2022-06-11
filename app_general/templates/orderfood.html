@@ -1,0 +1,65 @@
+{% extends 'components/base.html' %}
+{% load static %}
+
+{% block title_name %}LOGIN{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<div class="order-order">
+    <div class="container">
+
+        <form action="buynow" method="post">
+            {% csrf_token %}
+            <div class="head-order" >
+                <h1>สั่งซื้อ {{food_food}}</h1>
+                <select name="food_food" id="food_food">
+                    <option value="{{food_food}}">{{food_food}}</option>
+                </select>
+                
+            </div>
+            <div class="botton-order">
+                <h2>รายการอาหาร</h2>
+                <p>{{food_food.name}}</p>
+                <p>ราคา {{food_food.price}} บาท</p>
+            </div>
+            <div class="user-bar">
+                <div class="name-user">
+                    <h2>username : {{user.username}}</h2>
+                </div>
+                <div class="phone-number" >
+                    กรุณากรอกเบอร์โทรศัพท์
+                    <input type="text" name="phone_number" value="{{user.order_food.phonenumber}}">
+                </div>
+                <div class="address-user" >
+                    กรุณากรอกที่อยู่ในการจัดส่ง
+                <textarea placeholder="กรุณากรอกรายละเอียด" name="address" value="{{user.order_food.address}}">
+                    {{user.order_food.address}}
+                </textarea>
+                </div>
+                
+            </div>
+            <button type="submit">ยืนยันการสั่งซื้อ</button>
+        </form>
+
+    </div>
+</div>    
+
+{% else %}
+
+<div class="order-order">
+    <div class="container">
+        <div class="head-order">
+            <h1>สั่งซื้อ {{food_food}}</h1>
+        </div>
+        <div class="botton-order">
+            <h2>กรุณาทำการ login ก่อนสั่งซื้อ</h2>
+        </div>
+    </div>
+</div>
+
+                
+{% endif %}
+
+{% endblock %}

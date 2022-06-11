@@ -1,0 +1,32 @@
+{% extends 'components/base.html' %}
+{% load static %}
+{% block title_name %}Home{% endblock %}
+
+{% block content %}
+
+    <div class="head-home-page">
+        <div class="head-home-img"></div>
+        <h1>FOOD FOR YOU</h1>
+    </div>
+    <div class="home-page">
+        <div class="container">
+            <h1 class="type-h1">หมวดหมู่อาหาร</h1>
+            <div class="home-grid">
+                <div class="type-page">
+                    {% for ran in random %}
+                    <div class="toom-box">
+                        <a href="{%url 'foodmenu' %}?style_type={{ran.type}}"><img src="{% static ran.photo %}" alt=""></a>
+                        <a href="{%url 'foodmenu' %}?style_type={{ran.type}}"><h2>{{ran.type}}</h2></a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-go">
+        <div class="container">
+            <a href="{%url 'foodmenu' %}"><h1>ดูอาหารทังหมด</h1></a>
+        </div>
+    </div>
+
+{% endblock %}
